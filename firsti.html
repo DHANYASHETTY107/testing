@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 56px;
+        }
+        .carousel-item img {
+            height: 400px;
+            object-fit: cover;
+        }
+        .card img {
+            height: 300px;
+            object-fit: cover;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+        }
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        footer ul li {
+            margin-bottom: 10px;
+        }
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">BookStore</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <button class="btn btn-outline-primary ml-2" data-toggle="modal" data-target="#cartModal">Cart (<span id="cart-count">0</span>)</button>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="https://png.pngtree.com/thumb_back/fh260/background/20210909/pngtree-bookstore-image_834987.jpg" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Bookstore 1</h5>
+                    <p>A bookstore is a retail establishment specializing in the sale of books. Bookstores come in various types and sizes.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="https://png.pngtree.com/thumb_back/fh260/background/20210902/pngtree-the-background-photography-of-the-empty-library-bookstore-indoors-image_785539.jpg" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Bookstore 2</h5>
+                    <p>New and Used Books: Many bookstores sell both new and second-hand books. Some focus exclusively on one or the other.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="https://thumbs.dreamstime.com/b/modern-spacious-bookshop-natural-color-29821239.jpg" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Bookstore 3</h5>
+                    <p>Book Clubs and Reading Groups: Organize gatherings for readers to discuss books.</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- Books Section -->
+    <div class="container my-5" id="books-section">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://images.template.net/wp-content/uploads/2019/06/Free-Childrens-Book-Cover-Template.jpg" alt="Book 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Once Upon a Time</h5>
+                        <p class="card-text">Author: John Barth</p>
+                        <p class="card-text">Price: $250</p>
+                        <button class="btn btn-primary add-to-cart" data-title="Once Upon a Time" data-author="John Barth" data-price="250">Add to Cart</button>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://m.media-amazon.com/images/I/51qgk9rdVvL.jpg" alt="Book 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Story Book</h5>
+                        <p class="card-text">Author: Mark Binder</p>
+                        <p class="card-text">Price: $300</p>
+                        <button class="btn btn-primary add-to-cart" data-title="Story Book" data-author="Mark Binder" data-price="300">Add to Cart</button>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="https://media.slidesgo.com/storage/21693435/conversions/0-nature-adventure-storybook-thumb.jpg" alt="Book 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Adventure Story Book</h5>
+                        <p class="card-text">Author: Jim Johnson</p>
+                        <p class="card-text">Price: $500</p>
+                        <button class="btn btn-primary add-to-cart" data-title="Adventure Story Book" data-author="Jim Johnson" data-price="500">Add to Cart</button>
+                        <button class="btn btn-secondary">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul id="cart-items" class="list-group"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Swapna BookStore</h5>
+                    <p>Swapna Bookstore is a renowned bookstore located in Hyderabad, India. It has been a staple in the community for many years, </p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <ul>
+                        <li><a href="https://www.facebook.com/sapnaretail/">Facebook</a></li>
+                        <li><a href="https://x.com/SapnaCbe?mx=2">Twitter</a></li>
+                        <li><a href="https://www.instagram.com/sapna_book_house/?hl=en">Instagram</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let cart = [];
+
+            function updateCartCount() {
+                $('#cart-count').text(cart.length);
+            }
+
+            function updateCartModal() {
+                const cartItems = $('#cart-items');
+                cartItems.empty();
+                cart.forEach(item => {
+                    const li = $('<li>').addClass('list-group-item').text(`${item.title} by ${item.author} - $${item.price}`);
+                    cartItems.append(li);
+                });
+            }
+
+            $('.add-to-cart').click(function() {
+                const title = $(this).data('title');
+                const author = $(this).data('author');
+                const price = $(this).data('price');
+
+                cart.push({ title, author, price });
+
+                updateCartCount();
+                updateCartModal();
+            });
+
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>
